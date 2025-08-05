@@ -30,8 +30,17 @@ Never stores secrets in code or in version control
 
 Reminds you to update certificates manually (rather than handling complex multi-line certs)
 
-<pre lang="markdown"> 📂 Expected Directory Structure text <code> ```text eaa-lke-cpar/ ├── build_env/ # Run the script from here │ └── terraform-updater.py └── cpar-vars/ ├── terraform.tfvars ├── eks-terraform.tfvars ├── cpar-values.yaml └── cpar-secrets.yaml ``` </code> </pre>
 
+## 📂 Expected Directory Structure
+
+eaa-lke-cpar/
+├── build_env/ # Run the script from here
+│ └── terraform-updater.py
+└── cpar-vars/
+├── terraform.tfvars
+├── eks-terraform.tfvars
+├── cpar-values.yaml
+└── cpar-secrets.yaml
 
 🚀 How do I use it?
 Open a terminal
