@@ -31,7 +31,7 @@ eaa-lke-cpar/
 
 ## Steps to run the Script
 
-Make sure you have all the inputs and your desired configuration for Cluster and LoxiLB instances ready.
+Make sure you have all the inputs and your desired configuration for Cluster and LoxiLB instances ready before running this script.
 
 Enter the below command from build_env folder:
 
