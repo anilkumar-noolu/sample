@@ -40,6 +40,7 @@ Make sure you have all the inputs and your desired configuration for Cluster and
 Enter the below command from build_env folder:
 
 ```python variable-updater.py```
+
 Select cloud provider (Amazon or Linode).
 
 Enter all requested inputs.
