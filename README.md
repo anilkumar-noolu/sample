@@ -8,15 +8,11 @@ Prompts for necessary inputs with validation
 
 This Script Updates the below files:
 
-terraform.tfvars files (for LKE) or eks-terraform.tfvars (for EKS)
-
-cpar-values.yaml
-
-cpar-secrets.yaml
-
+1. terraform.tfvars files (for LKE) or eks-terraform.tfvars (for EKS)
+2. cpar-values.yaml
+3. cpar-secrets.yaml
 
 Certificate values must be updated manually, script provides clear reminders of where the certs are present currently and where you should update them.
-
 
 Usage
 Run the script from the build_env directory:
