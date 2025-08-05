@@ -26,25 +26,29 @@ Run the script from the build_env directory:
 <pre> 
 eaa-lke-cpar/ 
  ├── build_env/ # Run the script from here │
-      └── terraform-updater.py 
+      └── variable-updater.py 
  └── cpar-vars/ 
        ├── terraform.tfvars 
        ├── eks-terraform.tfvars 
        ├── cpar-values.yaml 
        └── cpar-secrets.yaml  </pre>
 
+## Steps to run the Script
 
-```python3 variable-updater.py```
+Make sure you have all the inputs and your desired configuration for Cluster and LoxiLB instances ready.
+
+Enter the below command from build_env folder:
+
+```python variable-updater.py```
 Select cloud provider (Amazon or Linode).
 
 Enter all requested inputs.
 
 Preview changes and confirm to apply.
 
-
 After Previewing changes and confirming everything is fine, provision infrastructure using Terraform Commands.
 
 
 📝 Notes
 
-Certificates (Filebeat ClientKey, VictoriaMetrics Key) are not updated automatically. Update them manually in cpar-secrets.yaml as prompted.
+Certificates (Filebeat ClientKey, VictoriaMetrics Key) are not updated automatically through this python script for now. Update them manually in cpar-secrets.yaml before or after running this script.
