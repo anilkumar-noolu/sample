@@ -15,7 +15,7 @@ cpar-values.yaml
 cpar-secrets.yaml
 
 
-Certificate values must be updated manually; script provides clear reminders
+Certificate values must be updated manually, script provides clear reminders of where the certs are present currently and where you should update them.
 
 
 Usage
