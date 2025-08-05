@@ -1,0 +1,121 @@
+Readme
+
+Certainly! Here's a complete README.md for your Python script, specifically tailored for your workflow and Terraform automation. I've kept it clear, concise, and practical.
+
+Multi-Cloud Terraform Variables Updater
+This Python script provides a safe, guided, and interactive way to update Terraform variable files for Linode and Amazon (EKS) clusters, as well as related YAML configuration files, reducing the risk of manual errors and exposure of sensitive information.
+
+📝 What does this script do?
+Prompts for cloud provider selection (Linode or Amazon EKS)
+
+Interactively gathers required variables from the user, with input validation and examples
+
+Updates multiple configuration files:
+
+terraform.tfvars (Linode) or eks-terraform.tfvars (Amazon EKS)
+
+cpar-values.yaml
+
+cpar-secrets.yaml
+
+Never stores secrets in code or in version control
+
+Reminds you to update certificates manually (rather than handling complex multi-line certs)
+
+📂 Expected Directory Structure
+text
+eaa-lke-cpar/
+├── build_env/         # Run the script from here
+│   └── terraform-updater.py
+└── cpar-vars/
+    ├── terraform.tfvars
+    ├── eks-terraform.tfvars
+    ├── cpar-values.yaml
+    └── cpar-secrets.yaml
+🚀 How do I use it?
+Open a terminal
+
+Navigate to the build_env/ directory:
+
+text
+cd eaa-lke-cpar/build_env
+Run the script:
+
+text
+python3 terraform-updater.py
+Follow the interactive prompts:
+
+Choose your cloud provider (Amazon or Linode)
+
+Enter all required variables—examples and validation are provided for each input
+
+You'll receive clear notes about certificate handling (they are not auto-updated)
+
+Preview all changes before they are written!
+
+Verify and confirm:
+
+Review the displayed preview
+
+Approve to save updates to the .tfvars and .yaml files in ../cpar-vars/
+
+⚙️ How do I run Terraform with these files?
+After you’ve updated your variables files, you can provision your infrastructure as usual:
+
+For Linode:
+text
+terraform apply -var-file ../../cpar-vars/terraform.tfvars -target=module.lke
+For Amazon (EKS):
+text
+terraform apply -var-file ../../cpar-vars/eks-terraform.tfvars -target=module.lke
+🛡️ Security Practices
+Secret/cert values are never stored in your source code.
+
+The script does not update certificates automatically; clear CLI notes are provided so you can update certs manually in cpar-secrets.yaml as recommended.
+
+Sensitive values are masked in the preview screen before file update.
+
+🔑 What if I need to update certificates?
+You'll see clear CLI notes after the input prompts, for example:
+
+text
+NOTE - Filebeat ClientKey:
+Please update the filebeat Client Key in cpar-secrets.yaml file manually after running this script.
+Stage Filebeat Client Key is located at:
+  aws(stage) -> parameter_store -> region us-east-2 -> /eaa/Linode/filebeat_client_key
+
+NOTE - VictoriaMetrics Key:
+Please update the VictoriaMetrics private Key in cpar-secrets.yaml file manually after running this script.
+It is used to connect to victoriametrics server to send metrics.
+Take it from any OPS and update in the cpar-secrets.yaml file.
+🧩 Script Features
+Cross-cloud support: Linode (LKE) and Amazon (EKS)
+
+Intuitive, menu-driven CLI
+
+Required input validation: No empty secrets or config values
+
+Changes previewed before file writes
+
+Easy to extend for other providers/configs
+
+Safe file handling: Will not overwrite with empty or bad content
+
+🛠️ Troubleshooting
+Files are not updated: Make sure you run the script from the build_env directory.
+
+Directory not found errors: Double-check that cpar-vars/ exists next to build_env/.
+
+tfvars appears with \: Check that your script does not use re.escape()/escape_for_regex() in replacements (see troubleshooting in this README!).
+
+🗂️ Maintaining and Extending
+To add new variables or sections, simply extend the prompt and update routines.
+
+Always validate that all output files are written as expected.
+
+🕵️♂️ Support
+If you have questions or hit any trouble, please open an issue or contact the DevOps team.
+
+Happy automating!
+
+Let me know if you want a more detailed section on troubleshooting, contributions, or a sample session!
