@@ -33,7 +33,7 @@ Reminds you to update certificates manually (rather than handling complex multi-
 
 ## 📂 Expected Directory Structure
 
-<pre> ## 
+<pre> 
 eaa-lke-cpar/ 
  ├── build_env/ # Run the script from here │
       └── terraform-updater.py 
