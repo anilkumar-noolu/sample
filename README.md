@@ -34,7 +34,7 @@ eaa-lke-cpar/
        └── cpar-secrets.yaml  </pre>
 
 
-python3 terraform-updater.py
+```python3 variable-updater.py```
 Select cloud provider (Amazon or Linode).
 
 Enter all requested inputs.
